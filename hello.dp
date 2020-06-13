@@ -1,0 +1,92 @@
+module "krishna"
+
+import "io" 
+import {conv,...} from "strings"
+
+
+//type alias
+type T = int
+type T = string
+type T = rune
+type T = float
+type T = Double
+type T = list
+type T = map
+
+
+//data classes
+ K 
+    @name: string
+    @address: string
+    parseAddress()
+    //manipulates value
+    *parseAddress()
+end
+
+enum E 
+    Sunday
+    Monday
+    Tuesday
+    Wednesday
+    Thursday
+    Friday
+    Saturday
+end
+
+class Say
+    constructor()
+    end
+end
+
+//generalized types
+class Hello<T>: Hello, Bind
+     //instance variable
+     set,get @name: T 
+     //class variable
+     $static: T
+
+     constructor() 
+         let a = "hello" 
+     end
+
+
+     public sayHello() 
+       io.print("name")
+     end
+
+     private setName(s: T) 
+         pass
+     end
+
+     internal take(argument)
+         pass
+     end	 
+end
+
+fun main() 
+  let a = 2
+  let b = "string"
+  let c: string = c + b
+  
+  let b = match(i)
+
+
+  while(h != false) 
+      if (i == 0)
+        break
+      end	
+      io.print("hello")
+  end
+
+  for(i: range(0,10))
+      io.printf("hello {}",i)
+  end
+
+  if(t != true) 
+
+  else if(typeof(t) == boolean) 
+  
+  end
+
+  return 
+end
