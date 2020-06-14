@@ -9,84 +9,130 @@ type T = int
 type T = string
 type T = rune
 type T = float
-type T = Double
+type T = double
+type T = boolean
 type T = list
 type T = map
+type T = undefined
 
 
-//data classes
- K 
-    @name: string
-    @address: string
-    parseAddress()
-    //manipulates value
-    *parseAddress()
-end
 
-enum E 
-    Sunday
-    Monday
-    Tuesday
-    Wednesday
-    Thursday
-    Friday
-    Saturday
+// Enumeration
+class Days
+   $Sunday: case
+   $Monday: case
+   $Tuesday: case
+   $Wednesday: case
+   $Thursday: case
+   $Friday: case
+   $Saturday: case
 end
 
 class Say
-    constructor()
+    Say()
+        pass
+    end
+    
+    //operator overloading
+    operator[]()
+        pass
     end
 end
 
-//generalized types
-class Hello<T>: Hello, Bind
+class Hello: Hello, Bind
      //instance variable
      set,get @name: T 
      //class variable
      $static: T
 
-     constructor() 
+     Hello() 
          let a = "hello" 
      end
-
+     
+     //functions are default immutable
 
      public sayHello() 
        io.print("name")
      end
 
-     private setName(s: T) 
+     private setName(s: String) 
          pass
      end
 
-     internal take(argument)
+     private setToday(s)
+         pass
+     end
+     //mutable function
+     internal *take(argument)
          pass
      end	 
 end
 
-fun main() 
+
+fun Main() 
   let a = 2
   let b = "string"
   let c: string = c + b
+
+  //
+  let a = "string" + undefined
+  //
+  let x = 2 + "string"
+
+  switch(hello)
+     Ok => io.Print("hello")
+     Error => io.Print("error")
+  end
   
-  let b = match(i)
+  //handle async task
+  try
+      //await closure
+      let callback = await ()
+             
+      end
+      let callback2 = await (i) 
+
+      end
+      fetch("https://www.google.com",callback)
+  end   
+
+  let a = switch(T)
+      Ok(Hello) => "hello"
+  end
+
+  try
+      fun raise(name)
+          return name + "krishna"
+      end
+      raise("satya")
+  catch(Exception)
+      throw StringException()
+  end
 
 
   while(h != false) 
-      if (i == 0)
-        break
+      if(i == 0)
+         break
       end	
-      io.print("hello")
+      io.Print("hello")
   end
 
-  for(i: range(0,10))
-      io.printf("hello {}",i)
+  for(i; range(0,10))
+      io.Printf("hello {}",i)
+      for(i  range(0,10))
+          continue
+      end
   end
 
   if(t != true) 
-
+      
   else if(typeof(t) == boolean) 
   
   end
+
+  //closure
+  let a = () "krishna, satya" end
+
 
   return 
 end
