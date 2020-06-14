@@ -23,10 +23,6 @@ class Say do
         pass
     end
     
-    //operator overloading
-    operator[]() do
-        pass
-    end
 end
 
 class Hello: Hello, Bind do
@@ -41,19 +37,20 @@ class Hello: Hello, Bind do
      
      //functions are default immutable
 
-     public sayHello() do
+     sayHello() do
        io.print("name")
      end
 
-     private setName(s: String) do
+     setName(s: String) do
          pass
      end
 
-     private setToday(s) do
+     setToday(s) do
          pass
      end
 
-     internal take(argument) do
+     //pass value by reference
+     take(&argument) do
          pass
      end	 
 end
@@ -62,12 +59,12 @@ fun Main() do
   let a = 2
   let b = "string"
   let c: string = c + b
-  //immutable with !
-  let list!
+  let a = 2
+  let b = a + a
   let list = [1,2,3,4,5]
   let list2 = ["string", 2.02, true]
-  let map = ()
-
+  let map = 
+  let days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 
   //"string"
   let a = "string" + undefined
@@ -81,9 +78,7 @@ fun Main() do
   let addf = 2.02 + 2
 
   switch(hello) do
-      "hello": io.Print()
-               break
-      default: throw Exception()
+
   end
   
   //handle async task
