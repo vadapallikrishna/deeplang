@@ -52,8 +52,8 @@ class Hello: Hello, Bind do
      private setToday(s) do
          pass
      end
-     //mutable function
-     internal *take(argument) do
+
+     internal take(argument) do
          pass
      end	 
 end
@@ -62,9 +62,11 @@ fun Main() do
   let a = 2
   let b = "string"
   let c: string = c + b
+  //immutable with !
+  let list!
   let list = [1,2,3,4,5]
   let list2 = ["string", 2.02, true]
-  let map = 
+  let map = ()
 
 
   //"string"
@@ -79,18 +81,22 @@ fun Main() do
   let addf = 2.02 + 2
 
   switch(hello) do
-      
+      "hello": io.Print()
+               break
+      default: throw Exception()
   end
   
   //handle async task
   try
       //await closure
-      let callback = 
+      let callback = await () do
+          pass
+      end
       fetch("https://www.google.com",callback)
   end   
 
   let a = switch(hello) do
-        "hello" do print  
+
   end
 
   
@@ -120,8 +126,14 @@ fun Main() do
       pass
   end
 
+  for i do 
+      range(0,10)
+  end
+
   //closure
-  let a =  
+  let a = () do
+
+  end
 
 
   return 
