@@ -15,37 +15,39 @@ type T = list
 type T = map
 type T = undefined
 
+//module system
+export is public
+hide is private
+default is global
+ 
 
-
-
-class Say do
+hide class Say do
     Say() do
         pass
-    end
-    
+    end    
 end
 
-class Hello: Hello, Bind do
+hide class Hello: Hello, Bind do
      //instance variable
      set,get @name: T 
      //class variable
      $static: T
 
-     Hello() 
+     Hello() do
          let a = "hello" 
      end
      
      //functions are default immutable
 
-     sayHello() do
+     export sayHello() do
        io.print("name")
      end
 
-     setName(s: String) do
+     export setName(s: String) do
          pass
      end
 
-     setToday(s) do
+     private setToday(s) do
          pass
      end
 
@@ -63,7 +65,7 @@ fun Main() do
   let b = a + a
   let list = [1,2,3,4,5]
   let list2 = ["string", 2.02, true]
-  let map = 
+  let map = {"a": 2, "b": 2}
   let days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 
   //"string"
@@ -77,21 +79,33 @@ fun Main() do
   //float
   let addf = 2.02 + 2
 
-  switch(hello) do
 
+
+  switch(hello) do
+     case "hello" as io.Print("")
+     
   end
   
   //handle async task
   try
       //await closure
-      let callback = await () do
+      let callback = () do
           pass
       end
-      fetch("https://www.google.com",callback)
+      await fetch("https://www.google.com",callback)
+  resolve (JSON) do
+
   end   
 
   let a = switch(hello) do
+      case int as "hello"
+      case "hello" as "error"
+      case "h" as "h"
+      default as "error" + 2
+  end
 
+  let b = switch(2) do
+      case int as io.Print("hello")
   end
 
   
@@ -100,9 +114,8 @@ fun Main() do
       fun raise(name) do
           return name + "krishna"
       end
-      raise("satya")
   catch(Exception) do
-      throw StringException()
+      pass
   end
 
 
@@ -113,16 +126,14 @@ fun Main() do
       io.Print("hello")
   end
 
-
-
   if(t != true) do
       pass
   else if(typeof(t) == boolean) do
       pass
   end
 
-  for i do 
-      range(0,10)
+  for range(0,10) as i do 
+      io.Print(i)
   end
 
   //closure
