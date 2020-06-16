@@ -1,143 +1,153 @@
-module "krishna"
 
-type T = int
-type T = string
-type T = rune
-type T = float
-type T = double
-type T = boolean
-type T = list
-type T = map
-type T = undefined
 
-//module system
-export is public
-hide is private
-default is global
- 
+namespace "krishna" do
 
-hide class Say do
-    Say() do
-        pass
-    end    
-end
+    type T = int
+    type T = string
+    type T = rune
+    type T = float
+    type T = double
+    type T = boolean
+    type T = list
+    type T = map
+    type T = undefined
 
-hide class Hello: Hello, Bind do
-     //instance variable
-     set,get @name: T 
-     //class variable
-     $static: T
+    % "module system"
+    % "export is public"
+    % "hide is private"
+    % "default is global"
+    
+    % 
+    hide class Say do
+        Say() do
+            pass
+        end    
+    end
 
-     Hello() do
-         let a = "hello" 
-     end
+    hide class Hello: Hello, Bind do
+        % "instance variable"
+        set,get @name: T 
+        % "class variable"
+        $static: T
+
+        Hello() do
+            let a = "hello" 
+        end
      
-     //functions are default immutable
+        % "functions are default immutable"
+        % "make function available outside using export"
+        export sayHello() do
+            io.print("name")
+        end
 
-     export sayHello() do
-       io.print("name")
-     end
+        export setName(s: String) do
+            pass
+        end
 
-     export setName(s: String) do
-         pass
-     end
+        hide setToday(s) do
+           pass
+        end
 
-     hide setToday(s) do
-         pass
-     end
+        % "pass value by reference"
+        take(&argument) do
+           pass
+        end	 
+    end
 
-     //pass value by reference
-     take(&argument) do
-         pass
-     end	 
-end
+  fun Main() do
+      let a = 2
+      let b = "string"
+      let c: string = c + b
+      let a = 2
+      let b = a + a
+      let list = [1,2,3,4,5]
+      let list2 = ["string", 2.02, true]
+      let map = {"a": 2, "b": 2}
+      let days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
 
-fun Main() do
-  let a = 2
-  let b = "string"
-  let c: string = c + b
-  let a = 2
-  let b = a + a
-  let list = [1,2,3,4,5]
-  let list2 = ["string", 2.02, true]
-  let map = {"a": 2, "b": 2}
-  let days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
-
-  //"string"
-  let a = "string" + undefined
-  //"2string"
-  let x = 2 + "string"
+      //"string"
+      let a = "string" + undefined
+      //"2string"
+      let x = 2 + "string"
   
-  //int
-  let add = 2 + 2
+      //int
+      let add = 2 + 2
   
-  //float
-  let addf = 2.02 + 2
+      //float
+      let addf = 2.02 + 2
 
 
 
-  switch(hello) do
-     case "hello" as io.Print("")
-     
-  end
-  
-  //handle async task
-  try
-      //await closure
-      let callback = () do
-          pass
+      switch(hello) do
+           case "hello" as io.Print("")  
       end
-      await fetch("https://www.google.com",callback)
-  as(JSON) do
+  
+     % "handle async task"
+     try
+         % "await closure"
+         let callback = () do
+            pass
+         end
+         await fetch("https://www.google.com",callback)
+     (JSON) do
 
-  end   
+     end   
 
-  let a = switch(hello) do
-      case int as "hello"
-      case "hello" as "error"
-      case "h" as "h"
-      default as "error" + 2
-  end
+     let a = switch(hello) do
+         case int as "hello"
+         case "hello" as "error"
+         case "h" as "h"
+         default as "error" + 2
+     end
 
-  let b = switch(2) do
-      case int as io.Print("hello")
-  end
+     let b = switch(2) do
+         case int as io.Print("hello")
+     end
 
   
 
-  try
-      fun raise(name) do
-          return name + "krishna"
-      end
-  as(Exception) do
-      pass
-  end
+     try
+         fun raise(name) do
+             return name + "krishna"
+         end
+     as(Exception) do
+         pass
+     end
 
 
-  while(h != false) do
-      if(i == 0) do
-         break
-      end	
-      io.Print("hello")
-  end
+     while(h != false) do
+         if(i == 0) do
+             break
+         end	
+         io.Print("hello")
+     end
 
-  if(t != true) do
-      pass
-  else if(typeof(t) == boolean) do
-      pass
-  end
+     if(t != true) do
+         pass
+     else if(typeof(t) == boolean) do
+         pass
+     end
 
-  for range(0,10) as i do 
-      io.Print(i)
-  end
+     for range(0,10) as i do 
+         io.Print(i)
+     end
+  
+     % "for expressions"
+     let b = for [1,2,3] as i*2
+     % "create list of range(0,10) from generator" 
 
-  let b = for [1,2,3] as i*2
+     % "manipulate map"
+     let c = for {0: "Hello"}
+
+     % "generator"
+     let t = for [1,2,3] yield
 
   
-  let a = () do
+     let a = () do
 
+     end
+
+
+     return 
   end
-
-
-  return 
 end
