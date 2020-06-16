@@ -1,10 +1,5 @@
 module "krishna"
 
-import "io" 
-import {conv,...} from "strings"
-
-
-//type alias
 type T = int
 type T = string
 type T = rune
@@ -47,7 +42,7 @@ hide class Hello: Hello, Bind do
          pass
      end
 
-     private setToday(s) do
+     hide setToday(s) do
          pass
      end
 
@@ -93,7 +88,7 @@ fun Main() do
           pass
       end
       await fetch("https://www.google.com",callback)
-  resolve (JSON) do
+  as(JSON) do
 
   end   
 
@@ -114,7 +109,7 @@ fun Main() do
       fun raise(name) do
           return name + "krishna"
       end
-  catch(Exception) do
+  as(Exception) do
       pass
   end
 
@@ -136,7 +131,9 @@ fun Main() do
       io.Print(i)
   end
 
-  //closure
+  let b = for [1,2,3] as i*2
+
+  
   let a = () do
 
   end
